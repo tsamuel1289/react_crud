@@ -12,13 +12,13 @@ export const LinkForm = (props) => {
     
     const handleInputChange = e => {
         const {name,value} = e.target;
-        setValues({...value, [name]: value})
+        setValues({...values, [name]: value})
     } 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = e => {
         e.preventDefault();
-        console.log(values);
-        props.addOrEdit()
+        props.addOrEditLink(values)
+        setValues({...initialStateValue})
     }
 
     return (
@@ -34,6 +34,7 @@ export const LinkForm = (props) => {
                         placeholder='https://someurl.com'
                         name='url'
                         onChange={handleInputChange}
+                        value={values.url}
                     />
                 </div>
                 <div className='form-group input-group mb-1'>
@@ -46,6 +47,7 @@ export const LinkForm = (props) => {
                         placeholder='Website name'
                         name='name'
                         onChange={handleInputChange}
+                        value={values.name}
                     />
                 </div>
                 <div className='form-group mb-1'>
@@ -55,6 +57,7 @@ export const LinkForm = (props) => {
                         className='form-control' 
                         placeholder='Write a description'
                         onChange={handleInputChange}
+                        value={values.description}
                         >
                    </textarea>
                 </div>
