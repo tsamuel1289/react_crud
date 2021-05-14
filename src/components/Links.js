@@ -9,11 +9,7 @@ const Links = () => {
         console.log('new task added')
     }
     const getLinks = async () => {
-        db.collection('links').onSnapshot((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                console.log(doc.data())
-            })
-        })
+        db.collection('links').onSnapshot( (querySnapshot) => {querySnapshot.forEach((doc)=>{ console.log(doc.data()) }     )    }      )
     }
     
 
